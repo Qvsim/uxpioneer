@@ -50,6 +50,7 @@ ul {
   align-items: center;
   z-index: 100;
   backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .logo {
@@ -106,6 +107,7 @@ nav ul li a:hover::after {
   justify-content: center;
   text-align: center;
   padding: 2rem;
+  padding-top: 6rem;
 }
 
 .hero-content {
@@ -279,4 +281,54 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   background: rgba(0,0,0,0.03);
+}
+
+/* ========== Responsive Fixes ========== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding-top: 6rem;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn-glow {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .cards,
+  .floating-panels,
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }
