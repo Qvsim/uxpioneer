@@ -21,11 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ========== Optional WebGL / Canvas Animation Placeholder ==========
+// ========== Optional WebGL / Canvas Animation ==========
 const canvas = document.getElementById("webgl-canvas");
 
 if (canvas) {
-  // Basic setup (Three.js or custom WebGL can be added here)
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -66,5 +65,15 @@ if (canvas) {
   window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+  });
+}
+
+// ========== Mobile Nav Toggle ==========
+const navToggle = document.getElementById('navToggle');
+const mobileNav = document.getElementById('mobileNav');
+
+if (navToggle && mobileNav) {
+  navToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
   });
 }
