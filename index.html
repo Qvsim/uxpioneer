@@ -10,9 +10,25 @@
 <body>
   <div id="cursor-glow"></div>
 
+  <!-- NAVIGATION -->
   <header class="navbar glass">
     <div class="logo">UX PIONEER</div>
+
+    <!-- Hamburger Toggle (Mobile) -->
+    <div class="nav-toggle" id="navToggle">☰</div>
+
+    <!-- Desktop Nav -->
     <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact" class="cta-button">Get in Touch</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav glass" id="mobileNav">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Our Work</a></li>
@@ -22,6 +38,7 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1><span>Futuristic</span> Web Experiences</h1>
@@ -31,6 +48,7 @@
     <canvas id="webgl-canvas"></canvas>
   </section>
 
+  <!-- SERVICES -->
   <section class="services glass" id="services">
     <h2>What We Do</h2>
     <div class="cards">
@@ -49,6 +67,7 @@
     </div>
   </section>
 
+  <!-- WORK -->
   <section class="work" id="work">
     <h2 class="section-title">Our Creations</h2>
     <div class="floating-panels">
@@ -70,6 +89,7 @@
     </div>
   </section>
 
+  <!-- TEAM -->
   <section class="team glass" id="team">
     <h2>The Pioneers</h2>
     <div class="team-grid">
@@ -91,6 +111,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="contact" id="contact">
     <h2>Let’s Collaborate</h2>
     <form>
@@ -101,10 +122,12 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer class="glass">
     <p>© 2025 UX Pioneer. All rights reserved.</p>
   </footer>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
