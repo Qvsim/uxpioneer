@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UX Pioneer — Web Dev & Ad Agency</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="cursor-glow"></div>
+
+  <header class="navbar glass">
+    <div class="logo">UX PIONEER</div>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact" class="cta-button">Get in Touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1><span>Futuristic</span> Web Experiences</h1>
+      <p>We build immersive, glass-layered, vision-inspired websites that feel alive.</p>
+      <a href="#work" class="btn-glow">See Our Work</a>
+    </div>
+    <canvas id="webgl-canvas"></canvas>
+  </section>
+
+  <section class="services glass" id="services">
+    <h2>What We Do</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Clean, performant, future-forward websites using React, Three.js, and more.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Visually stunning interfaces with intuitive user flows and micro-interactions.</p>
+      </div>
+      <div class="card">
+        <h3>Advertising</h3>
+        <p>Smart, data-driven digital campaigns designed for engagement and growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <h2 class="section-title">Our Creations</h2>
+    <div class="floating-panels">
+      <div class="panel glass hover-animate">
+        <img src="project1.png" alt="Project 1" />
+        <h3>Vision Portal</h3>
+        <p>Immersive brand universe with scroll-triggered 3D motion.</p>
+      </div>
+      <div class="panel glass hover-animate">
+        <img src="project2.png" alt="Project 2" />
+        <h3>NeoCommerce</h3>
+        <p>Futuristic storefront with depth layering and ultra-smooth transitions.</p>
+      </div>
+      <div class="panel glass hover-animate">
+        <img src="project3.png" alt="Project 3" />
+        <h3>HoloWorld</h3>
+        <p>WebGL-powered landing site with floating UI and reactive elements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team glass" id="team">
+    <h2>The Pioneers</h2>
+    <div class="team-grid">
+      <div class="member">
+        <img src="founder.jpg" alt="Founder" />
+        <h3>Jaden R.</h3>
+        <p>Founder & Lead Futurist</p>
+      </div>
+      <div class="member">
+        <img src="designer.jpg" alt="Designer" />
+        <h3>Maya L.</h3>
+        <p>Creative Director</p>
+      </div>
+      <div class="member">
+        <img src="dev.jpg" alt="Developer" />
+        <h3>Leo T.</h3>
+        <p>Web Engineer</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Let’s Collaborate</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-glow">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="glass">
+    <p>© 2025 UX Pioneer. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
