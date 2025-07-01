@@ -67,23 +67,15 @@ nav ul {
 nav ul li a {
   font-weight: 500;
   position: relative;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 100%;
-  background: #111;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: left;
-}
-
-nav ul li a:hover::after {
-  transform: scaleX(1);
+nav ul li a:hover {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  transform: scale(1.05);
 }
 
 .cta-button {
@@ -129,34 +121,46 @@ nav ul li a:hover::after {
   display: block;
 }
 
-/* ========== Hero ========== */
+/* ========== Hero Section ========== */
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  padding-top: 6rem;
+  text-align: left;
 }
 
-.hero-content {
+.hero-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
   z-index: 2;
-  max-width: 800px;
+  position: relative;
+  gap: 4rem;
+  flex-wrap: wrap;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
+.hero-left {
+  flex: 1;
 }
 
-.hero h1 span {
+.hero-left h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: #111;
+}
+
+.hero-left h1 span {
   color: #007bff;
 }
 
-.hero p {
+.hero-left p {
   margin: 1rem 0 2rem;
   font-size: 1.25rem;
   color: #555;
@@ -178,6 +182,72 @@ nav ul li a:hover::after {
   box-shadow: 0 0 30px rgba(0, 123, 255, 0.6);
 }
 
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* Rotating Cube */
+.rotating-cube {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 10s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0,123,255,0.2);
+}
+
+.front  { transform: translateZ(75px); }
+.back   { transform: rotateY(180deg) translateZ(75px); }
+.left   { transform: rotateY(-90deg) translateZ(75px); }
+.right  { transform: rotateY(90deg) translateZ(75px); }
+.top    { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+@keyframes rotateCube {
+  from { transform: rotateX(0) rotateY(0); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Scroll Down Arrow */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid #007bff;
+  border-right: 2px solid #007bff;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(45deg); }
+  50%      { transform: translateY(10px) rotate(45deg); }
+}
+
 /* ========== Glass Panel Base ========== */
 .glass {
   background: rgba(255, 255, 255, 0.15);
@@ -188,89 +258,47 @@ nav ul li a:hover::after {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* ========== Services Section ========== */
-.services {
+/* ========== Sections ========== */
+.services, .team, .contact {
   padding: 6rem 2rem;
   text-align: center;
 }
 
-.services h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.card {
-  flex: 1 1 250px;
-  max-width: 300px;
-  padding: 2rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* ========== Work Section ========== */
-.work {
-  padding: 6rem 2rem;
-  background: #f8f9fa;
-  text-align: center;
-}
-
+.services h2,
+.team h2,
+.contact h2,
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 3rem;
 }
 
-.floating-panels {
+.cards, .floating-panels, .team-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
 
-.panel {
-  flex: 1 1 280px;
+.card, .panel {
+  flex: 1 1 250px;
   max-width: 320px;
   padding: 2rem;
   border-radius: 20px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.panel img {
+.card:hover, .hover-animate:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.panel img, .member img {
   width: 100%;
   border-radius: 14px;
   margin-bottom: 1rem;
-}
-
-.hover-animate:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* ========== Team Section ========== */
-.team {
-  padding: 6rem 2rem;
-  text-align: center;
-}
-
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
 }
 
 .member {
@@ -278,18 +306,10 @@ nav ul li a:hover::after {
 }
 
 .member img {
-  width: 100%;
   border-radius: 50%;
-  margin-bottom: 1rem;
 }
 
-/* ========== Contact Section ========== */
-.contact {
-  padding: 6rem 2rem;
-  background: #fff;
-  text-align: center;
-}
-
+/* ========== Contact Form ========== */
 .contact form {
   display: flex;
   flex-direction: column;
@@ -311,7 +331,7 @@ footer {
   padding: 2rem;
   text-align: center;
   font-size: 0.9rem;
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(0,0,0,0.03);
 }
 
 /* ========== Responsive Fixes ========== */
@@ -339,21 +359,17 @@ footer {
     height: auto;
   }
 
-  .hero h1 {
-    font-size: 2rem;
+  .hero-split {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .hero p {
-    font-size: 1rem;
+  .hero-left h1 {
+    font-size: 2.2rem;
   }
 
-  .btn-glow {
-    padding: 0.6rem 1.4rem;
-    font-size: 0.95rem;
-  }
-
-  .logo {
-    font-size: 1.25rem;
+  .hero-left p {
+    font-size: 1.1rem;
   }
 
   .cards,
@@ -361,5 +377,15 @@ footer {
   .team-grid {
     flex-direction: column;
     align-items: center;
+  }
+
+  .rotating-cube {
+    width: 120px;
+    height: 120px;
+  }
+
+  .face {
+    width: 120px;
+    height: 120px;
   }
 }
