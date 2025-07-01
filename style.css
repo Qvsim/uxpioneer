@@ -346,21 +346,21 @@ footer {
   background: rgba(0,0,0,0.03);
 }
 
-/* ========== Responsive Fixes ========== */
+/* ========== Responsive Fixes & Mobile Nav Fix ======== */
 @media (max-width: 768px) {
+  /* show toggle, hide desktop nav */
+  .nav-toggle {
+    display: block !important;
+  }
+  .navbar > nav:not(.mobile-nav) {
+    display: none !important;
+  }
+  .mobile-nav {
+    top: 100%;
+  }
+
   .navbar {
     padding: 1rem 1.5rem;
-  }
-
-  .nav-toggle {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-  }
-
-  nav ul {
-    display: none !important;
   }
 
   .hero {
