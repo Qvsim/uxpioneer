@@ -121,27 +121,40 @@ nav ul li a:hover {
   display: block;
 }
 
-/* ========== Hero Section ========== */
+/* ========== Hero & Canvas Fixes ========== */
 .hero {
   position: relative;
+  overflow: hidden;          /* hide extra scrollbars from canvas */
   min-height: 100vh;
-  padding: 8rem 2rem 4rem;
+  padding: 10rem 2rem 4rem;  /* pushed down below navbar */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: left;
 }
 
+/* full-bleed, particle layer */
+#webgl-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* split layout, centered */
 .hero-split {
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  z-index: 2;
-  position: relative;
   gap: 4rem;
   flex-wrap: wrap;
+  z-index: 2;
 }
 
 .hero-left {
@@ -190,7 +203,7 @@ nav ul li a:hover {
   perspective: 1000px;
 }
 
-/* Rotating Cube */
+/* ========== Rotating Cube ========== */
 .rotating-cube {
   width: 150px;
   height: 150px;
@@ -226,12 +239,13 @@ nav ul li a:hover {
   to   { transform: rotateX(360deg) rotateY(360deg); }
 }
 
-/* Scroll Down Arrow */
+/* ========== Scroll-down Cue ========== */
 .scroll-down {
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 }
 
 .arrow {
@@ -248,7 +262,7 @@ nav ul li a:hover {
   50%      { transform: translateY(10px) rotate(45deg); }
 }
 
-/* ========== Glass Panel Base ========== */
+/* ========== Glass Panels (Reuse) ========== */
 .glass {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -258,15 +272,13 @@ nav ul li a:hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* ========== Sections ========== */
+/* ========== Sections: Services, Work, Team, Contact ========== */
 .services, .team, .contact {
   padding: 6rem 2rem;
   text-align: center;
 }
 
-.services h2,
-.team h2,
-.contact h2,
+.services h2, .team h2, .contact h2,
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 3rem;
@@ -337,8 +349,6 @@ footer {
 /* ========== Responsive Fixes ========== */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: row;
-    justify-content: space-between;
     padding: 1rem 1.5rem;
   }
 
@@ -354,14 +364,13 @@ footer {
   }
 
   .hero {
-    padding-top: 7rem;
-    flex-direction: column;
-    height: auto;
+    padding-top: 8rem;
+    text-align: center;
   }
 
   .hero-split {
     flex-direction: column;
-    text-align: center;
+    gap: 2rem;
   }
 
   .hero-left h1 {
@@ -379,12 +388,7 @@ footer {
     align-items: center;
   }
 
-  .rotating-cube {
-    width: 120px;
-    height: 120px;
-  }
-
-  .face {
+  .rotating-cube, .face {
     width: 120px;
     height: 120px;
   }
