@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UX Pioneer — Web Dev & Ad Agency</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="cursor-glow"></div>
@@ -13,8 +13,6 @@
   <!-- NAVIGATION -->
   <header class="navbar glass">
     <div class="logo">UX PIONEER</div>
-
-    <!-- Hamburger Toggle (Mobile) -->
     <div class="nav-toggle" id="navToggle">☰</div>
 
     <!-- Desktop Nav -->
@@ -40,11 +38,30 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1><span>Futuristic</span> Web Experiences</h1>
-      <p>We build immersive, glass-layered, vision-inspired websites that feel alive.</p>
-      <a href="#work" class="btn-glow">See Our Work</a>
+    <div class="hero-split">
+      <div class="hero-left">
+        <h1><span>Futuristic</span><br/> Web Experiences</h1>
+        <p>We build immersive, glass-layered, VisionOS-inspired websites that feel alive and reactive.</p>
+        <a href="#work" class="btn-glow">See Our Work</a>
+      </div>
+
+      <div class="hero-right">
+        <div class="rotating-cube">
+          <div class="face front">UX</div>
+          <div class="face back">PIONEER</div>
+          <div class="face left">WEBS</div>
+          <div class="face right">3D</div>
+          <div class="face top">🚀</div>
+          <div class="face bottom">✨</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Scroll Arrow -->
+    <div class="scroll-down">
+      <div class="arrow"></div>
+    </div>
+
     <canvas id="webgl-canvas"></canvas>
   </section>
 
