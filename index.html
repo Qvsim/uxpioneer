@@ -6,17 +6,12 @@
   <meta name="theme-color" content="#0A84FF" />
   <title>UX Pioneer — Web Dev & Ad Agency</title>
 
-  <!-- Preconnect & Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
+  <!-- System Font + CSS -->
   <link rel="preload" href="style.css" as="style" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Custom Glow Cursor -->
+  <!-- Glow Cursor -->
   <div id="cursor-glow" aria-hidden="true"></div>
 
   <!-- HEADER / NAVIGATION -->
@@ -87,7 +82,7 @@
       <div class="arrow"></div>
     </div>
 
-    <!-- Optional WebGL / Three.js canvas -->
+    <!-- WebGL Background -->
     <canvas id="webgl-canvas" aria-hidden="true"></canvas>
   </section>
 
@@ -119,68 +114,38 @@
     </div>
   </section>
 
-  <!-- WORK SHOWCASE -->
+  <!-- WORK (No images) -->
   <section class="work" id="work" aria-labelledby="work-title">
     <h2 id="work-title" class="section-title">Our Creations</h2>
     <div class="floating-panels">
       <div class="panel glass hover-animate">
-        <img
-          src="project1.png"
-          alt="Screenshot of Vision Portal project"
-          loading="lazy"
-        />
         <h3>Vision Portal</h3>
         <p>Immersive brand universe with scroll-triggered 3D motion.</p>
       </div>
       <div class="panel glass hover-animate">
-        <img
-          src="project2.png"
-          alt="Screenshot of NeoCommerce storefront"
-          loading="lazy"
-        />
         <h3>NeoCommerce</h3>
         <p>Futuristic storefront with depth layering and smooth transitions.</p>
       </div>
       <div class="panel glass hover-animate">
-        <img
-          src="project3.png"
-          alt="Screenshot of HoloWorld site"
-          loading="lazy"
-        />
         <h3>HoloWorld</h3>
-        <p>WebGL-powered landing with floating UI and reactive motion.</p>
+        <p>WebGL-powered landing site with floating UI and reactive motion.</p>
       </div>
     </div>
   </section>
 
-  <!-- TEAM -->
+  <!-- TEAM (No images) -->
   <section class="team glass" id="team" aria-labelledby="team-title">
     <h2 id="team-title">The Pioneers</h2>
     <div class="team-grid">
       <div class="member">
-        <img
-          src="founder.jpg"
-          alt="Portrait of Jaden R., Founder"
-          loading="lazy"
-        />
         <h3>Jaden R.</h3>
         <p>Founder & Lead Futurist</p>
       </div>
       <div class="member">
-        <img
-          src="designer.jpg"
-          alt="Portrait of Maya L., Creative Director"
-          loading="lazy"
-        />
         <h3>Maya L.</h3>
         <p>Creative Director</p>
       </div>
       <div class="member">
-        <img
-          src="dev.jpg"
-          alt="Portrait of Leo T., Web Engineer"
-          loading="lazy"
-        />
         <h3>Leo T.</h3>
         <p>Web Engineer</p>
       </div>
@@ -217,7 +182,7 @@
     <p>© 2025 UX Pioneer. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
