@@ -51,17 +51,23 @@ img {
   z-index: 9999;
 }
 
-/* Sticky Header Container */
+/* Sticky header container */
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 200;
+  display: flex;
+  justify-content: center;
 }
 
-/* Glass Utility */
-.glass {
+/* Glassmorphic Navbar */
+.navbar.glass {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  padding: 1rem 2rem;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
@@ -70,17 +76,15 @@ header {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar */
-.navbar.glass {
+/* Centered navbar content */
+.navbar__container {
   width: 100%;
-  max-width: 1200px;
-  margin: 20px auto 0 auto;
-  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Nav links */
 .navbar__menu ul {
   display: flex;
   gap: 2rem;
@@ -112,7 +116,7 @@ header {
   background: #333;
 }
 
-/* Mobile Nav */
+/* Mobile nav */
 .nav-toggle {
   display: none;
   font-size: 2rem;
@@ -239,7 +243,7 @@ header {
   100% { transform: rotateX(360deg) rotateY(360deg); }
 }
 
-/* Scroll Down Arrow */
+/* Scroll Arrow */
 .scroll-down {
   position: absolute;
   bottom: 30px;
