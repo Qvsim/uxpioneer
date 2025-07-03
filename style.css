@@ -51,6 +51,15 @@ img {
   z-index: 9999;
 }
 
+/* Sticky Header Container */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+}
+
 /* Glass Utility */
 .glass {
   background: var(--glass-bg);
@@ -63,17 +72,13 @@ img {
 
 /* Navbar */
 .navbar.glass {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
+  margin: 20px auto 0 auto;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
 }
 
 .navbar__menu ul {
@@ -142,7 +147,7 @@ img {
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: 10rem 2rem 4rem;
+  padding: 12rem 2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +262,7 @@ img {
   50%      { transform: translateY(10px) rotate(45deg); }
 }
 
-/* Section Blocks */
+/* Section Layout */
 .section {
   padding: 6rem 2rem;
   text-align: center;
@@ -275,7 +280,9 @@ img {
   gap: 2rem;
 }
 
-.section__card, .section__panel, .section__member {
+.section__card,
+.section__panel,
+.section__member {
   flex: 1 1 250px;
   max-width: 320px;
   padding: 2rem;
@@ -286,25 +293,14 @@ img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.section__card:hover, .section__panel:hover, .section__member:hover {
+.section__card:hover,
+.section__panel:hover,
+.section__member:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-.section__card img,
-.section__panel img,
-.section__member img {
-  border-radius: 14px;
-  margin-bottom: 1rem;
-}
-
-.section__card--circle img,
-.section__panel--circle img,
-.section__member--circle img {
-  border-radius: 50%;
-}
-
-/* Contact */
+/* Contact Form */
 .contact form {
   display: flex;
   flex-direction: column;
