@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A84FF" />
   <title>UX Pioneer — Web Dev & Ad Agency</title>
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="preload" href="style.css" as="style" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="cursor-glow"></div>
+  <!-- Custom Glow Cursor -->
+  <div id="cursor-glow" aria-hidden="true"></div>
 
-  <!-- NAVIGATION -->
-  <header class="navbar glass">
-    <div class="logo">UX PIONEER</div>
-    <div class="nav-toggle" id="navToggle">☰</div>
+  <!-- HEADER / NAVIGATION -->
+  <header class="navbar glass" role="banner">
+    <div class="logo" tabindex="0">UX PIONEER</div>
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Toggle navigation"
+      aria-controls="mobileNav"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
     <!-- Desktop Nav -->
-    <nav>
+    <nav class="navbar__menu" role="navigation">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Our Work</a></li>
@@ -26,7 +43,12 @@
     </nav>
 
     <!-- Mobile Nav -->
-    <nav class="mobile-nav glass" id="mobileNav">
+    <nav
+      class="mobile-nav glass"
+      id="mobileNav"
+      role="navigation"
+      aria-label="Mobile Menu"
+    >
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Our Work</a></li>
@@ -36,17 +58,20 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
     <div class="hero-split">
       <div class="hero-left">
-        <h1><span>Futuristic</span><br/> Web Experiences</h1>
-        <p>We build immersive, glass-layered, VisionOS-inspired websites that feel alive and reactive.</p>
-        <a href="#work" class="btn-glow">See Our Work</a>
+        <h1><span>Futuristic</span><br />Web Experiences</h1>
+        <p>
+          We build immersive, glass-layered, VisionOS-inspired websites that
+          feel alive and reactive.
+        </p>
+        <a href="#work" class="btn-glow" role="button">See Our Work</a>
       </div>
 
       <div class="hero-right">
-        <div class="rotating-cube">
+        <div class="rotating-cube" aria-hidden="true">
           <div class="face front">UX</div>
           <div class="face back">PIONEER</div>
           <div class="face left">WEBS</div>
@@ -57,71 +82,105 @@
       </div>
     </div>
 
-    <!-- Scroll Arrow -->
-    <div class="scroll-down">
+    <!-- Scroll Hint -->
+    <div class="scroll-down" aria-hidden="true">
       <div class="arrow"></div>
     </div>
 
-    <canvas id="webgl-canvas"></canvas>
+    <!-- Optional WebGL / Three.js canvas -->
+    <canvas id="webgl-canvas" aria-hidden="true"></canvas>
   </section>
 
   <!-- SERVICES -->
-  <section class="services glass" id="services">
-    <h2>What We Do</h2>
+  <section class="services glass" id="services" aria-labelledby="services-title">
+    <h2 id="services-title">What We Do</h2>
     <div class="cards">
       <div class="card">
         <h3>Web Development</h3>
-        <p>Clean, performant, future-forward websites using React, Three.js, and more.</p>
+        <p>
+          Clean, performant, future-forward websites using React, Three.js, and
+          more.
+        </p>
       </div>
       <div class="card">
         <h3>UI/UX Design</h3>
-        <p>Visually stunning interfaces with intuitive user flows and micro-interactions.</p>
+        <p>
+          Visually stunning interfaces with intuitive user flows and
+          micro-interactions.
+        </p>
       </div>
       <div class="card">
         <h3>Advertising</h3>
-        <p>Smart, data-driven digital campaigns designed for engagement and growth.</p>
+        <p>
+          Smart, data-driven digital campaigns designed for engagement and
+          growth.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- WORK -->
-  <section class="work" id="work">
-    <h2 class="section-title">Our Creations</h2>
+  <!-- WORK SHOWCASE -->
+  <section class="work" id="work" aria-labelledby="work-title">
+    <h2 id="work-title" class="section-title">Our Creations</h2>
     <div class="floating-panels">
       <div class="panel glass hover-animate">
-        <img src="project1.png" alt="Project 1" />
+        <img
+          src="project1.png"
+          alt="Screenshot of Vision Portal project"
+          loading="lazy"
+        />
         <h3>Vision Portal</h3>
         <p>Immersive brand universe with scroll-triggered 3D motion.</p>
       </div>
       <div class="panel glass hover-animate">
-        <img src="project2.png" alt="Project 2" />
+        <img
+          src="project2.png"
+          alt="Screenshot of NeoCommerce storefront"
+          loading="lazy"
+        />
         <h3>NeoCommerce</h3>
-        <p>Futuristic storefront with depth layering and ultra-smooth transitions.</p>
+        <p>Futuristic storefront with depth layering and smooth transitions.</p>
       </div>
       <div class="panel glass hover-animate">
-        <img src="project3.png" alt="Project 3" />
+        <img
+          src="project3.png"
+          alt="Screenshot of HoloWorld site"
+          loading="lazy"
+        />
         <h3>HoloWorld</h3>
-        <p>WebGL-powered landing site with floating UI and reactive elements.</p>
+        <p>WebGL-powered landing with floating UI and reactive motion.</p>
       </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section class="team glass" id="team">
-    <h2>The Pioneers</h2>
+  <section class="team glass" id="team" aria-labelledby="team-title">
+    <h2 id="team-title">The Pioneers</h2>
     <div class="team-grid">
       <div class="member">
-        <img src="founder.jpg" alt="Founder" />
+        <img
+          src="founder.jpg"
+          alt="Portrait of Jaden R., Founder"
+          loading="lazy"
+        />
         <h3>Jaden R.</h3>
         <p>Founder & Lead Futurist</p>
       </div>
       <div class="member">
-        <img src="designer.jpg" alt="Designer" />
+        <img
+          src="designer.jpg"
+          alt="Portrait of Maya L., Creative Director"
+          loading="lazy"
+        />
         <h3>Maya L.</h3>
         <p>Creative Director</p>
       </div>
       <div class="member">
-        <img src="dev.jpg" alt="Developer" />
+        <img
+          src="dev.jpg"
+          alt="Portrait of Leo T., Web Engineer"
+          loading="lazy"
+        />
         <h3>Leo T.</h3>
         <p>Web Engineer</p>
       </div>
@@ -129,22 +188,36 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <h2>Let’s Collaborate</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Email" required />
-      <textarea placeholder="Your Message" required></textarea>
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Let’s Collaborate</h2>
+    <form aria-label="Contact Form">
+      <input
+        type="text"
+        placeholder="Your Name"
+        aria-label="Your Name"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        aria-label="Email"
+        required
+      />
+      <textarea
+        placeholder="Your Message"
+        aria-label="Your Message"
+        required
+      ></textarea>
       <button type="submit" class="btn-glow">Send Message</button>
     </form>
   </section>
 
   <!-- FOOTER -->
-  <footer class="glass">
+  <footer class="glass" role="contentinfo">
     <p>© 2025 UX Pioneer. All rights reserved.</p>
   </footer>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
 </body>
 </html>
