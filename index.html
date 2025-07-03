@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0A84FF" />
   <title>UX Pioneer — Web Dev & Ad Agency</title>
-
-  <!-- System Font + CSS -->
   <link rel="preload" href="style.css" as="style" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -23,11 +21,8 @@
       aria-label="Toggle navigation"
       aria-controls="mobileNav"
       aria-expanded="false"
-    >
-      ☰
-    </button>
+    >☰</button>
 
-    <!-- Desktop Nav -->
     <nav class="navbar__menu" role="navigation">
       <ul>
         <li><a href="#services">Services</a></li>
@@ -37,13 +32,7 @@
       </ul>
     </nav>
 
-    <!-- Mobile Nav -->
-    <nav
-      class="mobile-nav glass"
-      id="mobileNav"
-      role="navigation"
-      aria-label="Mobile Menu"
-    >
+    <nav class="mobile-nav glass" id="mobileNav" role="navigation" aria-label="Mobile Menu">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Our Work</a></li>
@@ -53,18 +42,14 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-split">
       <div class="hero-left">
         <h1><span>Futuristic</span><br />Web Experiences</h1>
-        <p>
-          We build immersive, glass-layered, VisionOS-inspired websites that
-          feel alive and reactive.
-        </p>
+        <p>We build immersive, glass-layered, VisionOS-inspired websites that feel alive and reactive.</p>
         <a href="#work" class="btn-glow" role="button">See Our Work</a>
       </div>
-
       <div class="hero-right">
         <div class="rotating-cube" aria-hidden="true">
           <div class="face front">UX</div>
@@ -76,76 +61,61 @@
         </div>
       </div>
     </div>
-
-    <!-- Scroll Hint -->
-    <div class="scroll-down" aria-hidden="true">
-      <div class="arrow"></div>
-    </div>
-
-    <!-- WebGL Background -->
+    <div class="scroll-down" aria-hidden="true"><div class="arrow"></div></div>
     <canvas id="webgl-canvas" aria-hidden="true"></canvas>
   </section>
 
   <!-- SERVICES -->
-  <section class="services glass" id="services" aria-labelledby="services-title">
-    <h2 id="services-title">What We Do</h2>
-    <div class="cards">
-      <div class="card">
+  <section class="section glass" id="services" aria-labelledby="services-title">
+    <h2 class="section__title" id="services-title">What We Do</h2>
+    <div class="section__grid">
+      <div class="section__card">
         <h3>Web Development</h3>
-        <p>
-          Clean, performant, future-forward websites using React, Three.js, and
-          more.
-        </p>
+        <p>Clean, performant, future-forward websites using React, Three.js, and more.</p>
       </div>
-      <div class="card">
+      <div class="section__card">
         <h3>UI/UX Design</h3>
-        <p>
-          Visually stunning interfaces with intuitive user flows and
-          micro-interactions.
-        </p>
+        <p>Visually stunning interfaces with intuitive user flows and micro-interactions.</p>
       </div>
-      <div class="card">
+      <div class="section__card">
         <h3>Advertising</h3>
-        <p>
-          Smart, data-driven digital campaigns designed for engagement and
-          growth.
-        </p>
+        <p>Smart, data-driven digital campaigns designed for engagement and growth.</p>
       </div>
     </div>
   </section>
 
-  <!-- WORK (No images) -->
-  <section class="work" id="work" aria-labelledby="work-title">
-    <h2 id="work-title" class="section-title">Our Creations</h2>
-    <div class="floating-panels">
-      <div class="panel glass hover-animate">
+  <!-- WORK -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <h2 class="section__title" id="work-title">Our Creations</h2>
+    <div class="section__grid">
+      <div class="section__panel glass hover-animate">
         <h3>Vision Portal</h3>
         <p>Immersive brand universe with scroll-triggered 3D motion.</p>
       </div>
-      <div class="panel glass hover-animate">
+      <div class="section__panel glass hover-animate">
         <h3>NeoCommerce</h3>
         <p>Futuristic storefront with depth layering and smooth transitions.</p>
       </div>
-      <div class="panel glass hover-animate">
+      <div class="section__panel glass hover-animate">
         <h3>HoloWorld</h3>
         <p>WebGL-powered landing site with floating UI and reactive motion.</p>
       </div>
     </div>
   </section>
 
-  <!-- TEAM (No images) -->
-  <section class="team glass" id="team" aria-labelledby="team-title">
-    <h2 id="team-title">The Pioneers</h2>
-    <div class="team-grid">
-      <div class="member">
+  <!-- TEAM -->
+  <section class="section glass" id="team" aria-labelledby="team-title">
+    <h2 class="section__title" id="team-title">The Pioneers</h2>
+    <div class="section__grid">
+      <div class="section__member">
         <h3>Jaden R.</h3>
         <p>Founder & Lead Futurist</p>
       </div>
-      <div class="member">
+      <div class="section__member">
         <h3>Maya L.</h3>
         <p>Creative Director</p>
       </div>
-      <div class="member">
+      <div class="section__member">
         <h3>Leo T.</h3>
         <p>Web Engineer</p>
       </div>
@@ -153,26 +123,12 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title">Let’s Collaborate</h2>
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <h2 class="section__title" id="contact-title">Let’s Collaborate</h2>
     <form aria-label="Contact Form">
-      <input
-        type="text"
-        placeholder="Your Name"
-        aria-label="Your Name"
-        required
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        aria-label="Email"
-        required
-      />
-      <textarea
-        placeholder="Your Message"
-        aria-label="Your Message"
-        required
-      ></textarea>
+      <input type="text" placeholder="Your Name" aria-label="Your Name" required />
+      <input type="email" placeholder="Email" aria-label="Email" required />
+      <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
       <button type="submit" class="btn-glow">Send Message</button>
     </form>
   </section>
@@ -182,7 +138,6 @@
     <p>© 2025 UX Pioneer. All rights reserved.</p>
   </footer>
 
-  <!-- JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
