@@ -15,11 +15,21 @@
   --focus: 0 0 0 3px rgba(77,163,255,.45);
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; background-color: var(--bg); }
+/* Hide scrollbar but keep scrolling */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Chrome/Edge/Safari */
+::-webkit-scrollbar { width: 0; height: 0; }
+/* Firefox */
+html { scrollbar-width: none; }
+
 html { scroll-behavior: smooth; }
 body {
-  margin: 0;
   font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
   color: var(--text);
   background:
