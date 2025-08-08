@@ -1,97 +1,65 @@
-// ========== Cursor Glow Tracking ==========
-const cursorGlow = document.getElementById("cursor-glow");
-let glowX = 0, glowY = 0;
+// Theme
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+const savedTheme = localStorage.getItem('theme');
 
-document.addEventListener("mousemove", (e) => {
-  glowX = e.clientX - 100;
-  glowY = e.clientY - 100;
+if (savedTheme) {
+  root.dataset.theme = savedTheme;
+  if (savedTheme === 'dark') document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#0B1220');
+}
+themeToggle?.addEventListener('click', () => {
+  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+  root.dataset.theme = next;
+  localStorage.setItem('theme', next);
 });
 
-function animateGlow() {
-  cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
-  requestAnimationFrame(animateGlow);
-}
-animateGlow(); // Use RAF to avoid layout thrashing
+// Apply “light” design tokens if theme=light
+const applyThemeTokens = () => {
+  const isLight = root.dataset.theme === 'light';
+  root.style.colorScheme = isLight ? 'light' : 'dark';
+};
+applyThemeTokens();
+new MutationObserver(applyThemeTokens).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
 
-// ========== Smooth Page Load Animations ==========
-document.addEventListener("DOMContentLoaded", () => {
-  const animated = document.querySelectorAll(
-    ".glass, .hero-content, .card, .panel, .member, .hero-left, .hero-right"
-  );
-
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) return;
-
-  animated.forEach((el, i) => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(30px)";
-    setTimeout(() => {
-      el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-      el.style.opacity = 1;
-      el.style.transform = "translateY(0)";
-    }, i * 120);
-  });
+// Mobile nav
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.getElementById('siteNav');
+navToggle?.addEventListener('click', () => {
+  const open = siteNav.style.display === 'block';
+  siteNav.style.display = open ? 'none' : 'block';
+  navToggle.setAttribute('aria-expanded', (!open).toString());
 });
 
-// ========== Canvas Particles ==========
-const canvas = document.getElementById("webgl-canvas");
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
 
-if (canvas && !isMobile) {
-  const ctx = canvas.getContext("2d");
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
-  const numParticles = 60;
-  const particles = [];
+// Forms – simple client-side validation + a11y live region
+function attachFormHandler(formId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+  const live = document.createElement('div');
+  live.setAttribute('role', 'status');
+  live.setAttribute('aria-live', 'polite');
+  live.className = 'sr-only';
+  form.appendChild(live);
 
-  for (let i = 0; i < numParticles; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 0.5,
-      dy: (Math.random() - 0.5) * 0.5,
-    });
-  }
-
-  function animateParticles() {
-    ctx.clearRect(0, 0, width, height);
-    particles.forEach((p) => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(0, 123, 255, 0.25)";
-      ctx.fill();
-      p.x += p.dx;
-      p.y += p.dy;
-
-      if (p.x < 0 || p.x > width) p.dx *= -1;
-      if (p.y < 0 || p.y > height) p.dy *= -1;
-    });
-    requestAnimationFrame(animateParticles);
-  }
-
-  animateParticles();
-
-  // Debounced resize
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }, 200);
-  });
-} else if (canvas) {
-  canvas.style.display = "none";
-}
-
-// ========== Mobile Nav Toggle ==========
-const navToggle = document.getElementById("navToggle");
-const mobileNav = document.getElementById("mobileNav");
-
-if (navToggle && mobileNav) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = mobileNav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", isOpen);
+  form.addEventListener('submit', (e) => {
+    const ok = form.reportValidity();
+    if (!ok) {
+      e.preventDefault();
+      live.textContent = 'Please fix the highlighted fields.';
+    } else if (form.action === '#') {
+      // Prevent broken POST if user didn’t set endpoint yet.
+      e.preventDefault();
+      live.textContent = 'Form ready. Add your endpoint to the form “action” attribute.';
+      alert('Form is ready. Set the form “action” to your endpoint (e.g., https://formsubmit.co/YOUR_EMAIL).');
+    }
   });
 }
+attachFormHandler('introForm');
+attachFormHandler('contactForm');
+
+// Respect reduced motion for hover tilt (no extra JS needed)
+
+// Perf: no canvas/WebGL here to keep Lighthouse high.
+// (Your previous version used canvas particles and rotating cube) // ref only
