@@ -12,12 +12,11 @@ navToggle?.addEventListener('click', () => {
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Forms: basic validation + safe default (avoid posting to "#")
+// Forms: basic validation + safe default
 function wireForm(id) {
   const form = document.getElementById(id);
   if (!form) return;
 
-  // a11y live region
   const live = document.createElement('div');
   live.setAttribute('role', 'status');
   live.setAttribute('aria-live', 'polite');
