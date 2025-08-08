@@ -1,13 +1,4 @@
-// Theme toggle (persists)
-const root = document.documentElement;
-const themeToggle = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) root.dataset.theme = savedTheme;
-themeToggle?.addEventListener('click', () => {
-  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-  root.dataset.theme = next;
-  localStorage.setItem('theme', next);
-});
+document.documentElement.dataset.theme = 'dark';
 
 // Mobile nav
 const navToggle = document.getElementById('navToggle');
