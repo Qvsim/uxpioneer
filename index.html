@@ -3,36 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UX Pioneer — Web Dev & Ad Agency</title>
-  <meta name="description" content="UX Pioneer builds fast, accessible, websites and ad funnels that convert." />
-  <meta name="theme-color" content="#0A84FF" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0B1220" media="(prefers-color-scheme: dark)">
+  <title>UX Pioneer | Web Development, Ads, and Marketing</title>
+  <meta name="description" content="UX Pioneer is a development and advertising agency. We design and build fast websites, run ad campaigns, and handle marketing that brings real results." />
+  <meta name="theme-color" content="#0b1220" />
   <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header / Nav -->
+  <!-- Header -->
   <header class="site-header glass" role="banner">
     <div class="container nav-row">
-      <a class="brand" href="#hero" aria-label="UX Pioneer home">UX PIONEER</a>
+      <a class="brand" href="#hero" aria-label="UX Pioneer home">
+        <span class="brand-mark" aria-hidden="true">◆</span> UX Pioneer
+      </a>
 
-      <button id="navToggle" class="icon-btn" aria-label="Toggle navigation" aria-controls="siteNav" aria-expanded="false">
-        <span class="icon-burger" aria-hidden="true"></span>
-      </button>
+      <button id="navToggle" class="icon-btn" aria-label="Open menu" aria-controls="siteNav" aria-expanded="false">☰</button>
 
       <nav id="siteNav" class="site-nav" role="navigation">
         <ul>
           <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a class="btn sm" href="#contact">Get in touch</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact" class="btn sm">Contact</a></li>
           <li>
-            <button id="themeToggle" class="icon-btn" aria-label="Toggle color theme">
-              <span class="icon-theme" aria-hidden="true">◑</span>
-            </button>
+            <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">◑</button>
           </li>
         </ul>
       </nav>
@@ -44,127 +40,185 @@
     <section id="hero" class="section hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1><span class="accent">Glass‑smooth</span> websites that load fast and convert.</h1>
-          <p>Design, development, and ads—end to end. Minimal code, micro‑interactions, maximum clarity.</p>
+          <h1>Websites and ad campaigns that move the needle</h1>
+          <p>We build fast, accessible sites and run ads that bring real traffic and sales. Clear strategy, clean builds, and results you can track.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Start a project</a>
+            <a class="link" href="#portfolio">See our work</a>
+          </div>
 
-          <!-- Minimal Intro Form -->
+          <!-- quick lead form -->
           <form id="introForm" class="inline-form" method="POST" action="#" novalidate>
-            <!-- Tip: replace action with your endpoint (e.g., https://formsubmit.co/YOUR_EMAIL) -->
             <label class="sr-only" for="fName">Your name</label>
             <input id="fName" name="name" type="text" placeholder="Your name" autocomplete="name" required>
-
             <label class="sr-only" for="fEmail">Email</label>
             <input id="fEmail" name="email" type="email" placeholder="Email" autocomplete="email" required>
-
-            <label class="sr-only" for="fType">Project</label>
+            <label class="sr-only" for="fType">Project type</label>
             <select id="fType" name="project">
-              <option value="Website">Website</option>
-              <option value="E‑commerce">E‑commerce</option>
-              <option value="Ads/Marketing">Ads/Marketing</option>
-              <option value="UI/UX Design">UI/UX Design</option>
+              <option>Website</option>
+              <option>Ecommerce</option>
+              <option>Ads and marketing</option>
+              <option>UI and UX design</option>
             </select>
-
-            <button class="btn" type="submit">Start</button>
-            <span class="form-hint">No spam. We reply within 24h.</span>
+            <button class="btn" type="submit">Send</button>
+            <span class="form-hint">We reply within one business day.</span>
           </form>
         </div>
 
-        <div class="hero-art" aria-hidden="true">
-          <div class="glass-card tilt">
-            <div class="orb"></div>
-            <div class="orb small"></div>
-            <p class="chip">95+ Lighthouse</p>
-            <p class="chip">WCAG 2.1 AA</p>
-            <p class="chip">SEO Ready</p>
+        <div class="hero-stats glass" aria-label="Highlights">
+          <div class="stat">
+            <div class="stat-num">95+</div>
+            <div class="stat-label">Lighthouse target</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">AA</div>
+            <div class="stat-label">WCAG level</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">≤1s</div>
+            <div class="stat-label">First input delay</div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="scroll-indicator" aria-hidden="true">
-        <span class="arrow"></span>
+    <!-- TRUST -->
+    <section aria-label="Trusted by" class="trust">
+      <div class="container trust-row">
+        <p class="trust-text">Trusted for clean builds and clear results</p>
+        <ul class="trust-logos" aria-label="Client logos">
+          <li class="logo-pill">Retail</li>
+          <li class="logo-pill">Construction</li>
+          <li class="logo-pill">Beauty</li>
+          <li class="logo-pill">Services</li>
+        </ul>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section id="services" class="section">
       <div class="container">
-        <h2 class="section-title">What we do</h2>
+        <h2 class="section-title">Services</h2>
         <div class="cards">
           <article class="card glass">
-            <h3>Web Development</h3>
-            <p>Semantic HTML, modern CSS (Grid/Flex/Vars), and optimized JS. Jamstack or vanilla—your call.</p>
+            <h3>Website development</h3>
+            <ul class="list">
+              <li>Modern HTML, CSS Grid/Flex, and light JavaScript</li>
+              <li>Performance tuning and Core Web Vitals</li>
+              <li>Accessibility checks and clean semantics</li>
+            </ul>
           </article>
           <article class="card glass">
-            <h3>UI/UX Design</h3>
-            <p>Luxury glassmorphism that stays readable. Wireframes → polished components → design system.</p>
+            <h3>UI and UX design</h3>
+            <ul class="list">
+              <li>Wireframes and page flows</li>
+              <li>Design systems and components</li>
+              <li>Readable type and clear navigation</li>
+            </ul>
           </article>
           <article class="card glass">
-            <h3>Ads & Funnels</h3>
-            <p>Landing pages and creatives aligned to your audience. Analytics, pixels, and rapid A/B tests.</p>
+            <h3>Ads and marketing</h3>
+            <ul class="list">
+              <li>Campaign setup and tracking</li>
+              <li>Landing pages and A/B tests</li>
+              <li>Analytics and weekly reporting</li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section id="process" class="section">
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section">
       <div class="container">
-        <h2 class="section-title">How it works</h2>
-        <ol class="steps">
-          <li class="glass"><strong>Discover</strong><br>Goals, audience, success metrics.</li>
-          <li class="glass"><strong>Design</strong><br>Wireframes → UI system → motion.</li>
-          <li class="glass"><strong>Build</strong><br>Accessible, responsive, blazing fast.</li>
-          <li class="glass"><strong>Launch</strong><br>Analytics, SEO, handoff, docs.</li>
-        </ol>
-      </div>
-    </section>
+        <h2 class="section-title">Portfolio</h2>
+        <div class="grid-3 portfolio-grid">
+          <article class="work glass">
+            <div class="work-head">
+              <h3>Storefront revamp</h3>
+              <span class="tag">Ecommerce</span>
+            </div>
+            <p>Faster PDPs, simpler filters, and a smoother checkout. Better conversion on mobile.</p>
+            <ul class="meta">
+              <li>TTFB ↓</li>
+              <li>CLS 0.03</li>
+              <li>CR ↑</li>
+            </ul>
+          </article>
 
-    <!-- WORK -->
-    <section id="work" class="section">
-      <div class="container">
-        <h2 class="section-title">Selected work</h2>
-        <div class="grid-3">
-          <article class="work glass hover">
-            <h3>Vision Portal</h3>
-            <p>Depth layering with subtle motion. Zero CLS.</p>
+          <article class="work glass">
+            <div class="work-head">
+              <h3>Service site refresh</h3>
+              <span class="tag">Local services</span>
+            </div>
+            <p>Clean pages with clear calls to action. Form completion up, bounce down.</p>
+            <ul class="meta">
+              <li>LCP 1.9s</li>
+              <li>FCP 1.2s</li>
+              <li>Leads ↑</li>
+            </ul>
           </article>
-          <article class="work glass hover">
-            <h3>NeoCommerce</h3>
-            <p>Snappy product pages, <abbr title="Core Web Vitals">CWV</abbr> green across devices.</p>
-          </article>
-          <article class="work glass hover">
-            <h3>HoloWorld</h3>
-            <p>Micro‑interactions that respect reduced motion.</p>
+
+          <article class="work glass">
+            <div class="work-head">
+              <h3>Lead gen landing</h3>
+              <span class="tag">Ads</span>
+            </div>
+            <p>Focused copy, short form, and fast load. Higher quality scores and lower CPC.</p>
+            <ul class="meta">
+              <li>QS 8–10</li>
+              <li>CPA ↓</li>
+              <li>ROAS ↑</li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section">
       <div class="container">
-        <h2 class="section-title">FAQ</h2>
-        <details class="glass">
-          <summary>Can you hit 95+ Lighthouse on mobile?</summary>
-          <p>Yes—lean assets, responsive images, critical CSS, deferred JS, and no layout shift.</p>
-        </details>
-        <details class="glass">
-          <summary>Do you support dark mode?</summary>
-          <p>Yep. System preference with a manual toggle, and accessible contrast targets.</p>
-        </details>
-        <details class="glass">
-          <summary>How do we start?</summary>
-          <p>Send the intro form. We’ll reply with a quick scope and timeline.</p>
-        </details>
+        <h2 class="section-title">Testimonials</h2>
+
+        <div class="testimonials">
+          <figure class="t-card glass">
+            <blockquote>
+              Our product pages got faster and sales went up. Clear updates every week and no fluff.
+            </blockquote>
+            <figcaption>
+              <span class="t-name">A. Rivera</span>
+              <span class="t-role">Owner, beauty ecommerce</span>
+            </figcaption>
+          </figure>
+
+          <figure class="t-card glass">
+            <blockquote>
+              They kept things simple and shipped on time. Forms, tracking, and the ads all just work.
+            </blockquote>
+            <figcaption>
+              <span class="t-name">M. Chen</span>
+              <span class="t-role">Director, home services</span>
+            </figcaption>
+          </figure>
+
+          <figure class="t-card glass">
+            <blockquote>
+              Clean build and fast pages. We finally have a site we can point ads to without worry.
+            </blockquote>
+            <figcaption>
+              <span class="t-name">S. Patel</span>
+              <span class="t-role">Founder, retail</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container">
-        <h2 class="section-title">Let’s build something clean.</h2>
+        <h2 class="section-title">Tell us what you need</h2>
         <form id="contactForm" class="stack-form" method="POST" action="#" novalidate>
-          <!-- Tip: replace action with your endpoint (e.g., https://formsubmit.co/YOUR_EMAIL) -->
           <div class="grid-2">
             <div>
               <label for="name">Name</label>
@@ -175,11 +229,15 @@
               <input id="email" name="email" type="email" autocomplete="email" required>
             </div>
           </div>
+
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" autocomplete="organization">
+
           <label for="msg">Project details</label>
-          <textarea id="msg" name="message" rows="5" placeholder="Tell us what you need…" required></textarea>
+          <textarea id="msg" name="message" rows="5" placeholder="A few lines about your project and goals" required></textarea>
 
           <button class="btn" type="submit">Send message</button>
-          <p class="small">By submitting you agree to our reply by email. We don’t share your data.</p>
+          <p class="small">We only use your info to reply.</p>
         </form>
       </div>
     </section>
@@ -187,13 +245,26 @@
 
   <footer class="site-footer glass" role="contentinfo">
     <div class="container footer-row">
-      <p>© <span id="year"></span> UX Pioneer. All rights reserved.</p>
+      <p>© <span id="year"></span> UX Pioneer</p>
       <nav aria-label="Legal">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
       </nav>
     </div>
   </footer>
+
+  <!-- Basic Organization schema (optional but helpful) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "UX Pioneer",
+    "url": "https://uxpioneer.com",
+    "description": "Web development and advertising agency.",
+    "areaServed": "US",
+    "sameAs": []
+  }
+  </script>
 
   <script src="script.js" defer></script>
 </body>
